@@ -1,16 +1,29 @@
 name: GitHubAction first
-run-name: ${{ github.actor }} is tetsing out GitHub Actions
-on: [push]
+run-name: ${{ github.actor }} is tetsing out GitHub Actions # github.actor will be the executer "ashis303"
+env:
+  ENV_AT_WORKFLOW: 'at WORKFLOW level'
+  ENV_OVERWRIDE: 'at workflow level overwride'
+on:
+  push:
+    branches:
+      - "main"
+      - "master"
 jobs:
   job01:
     runs-on: ubuntu-latest
+    env: 
+      ENV_AT_JOB: 'at JOB level'
     steps:
       - name: step1
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 #This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
       - name: step2
+        env: 
+          ENV_AT_STEP: 'at STEP level'
+          ENV_OVERWRIDE: 'at STEP level overwride'
         run: env | sort
   job02:
     runs-on: windows-latest
+    needs: [job01]  # Depends on attribute.
     steps:
       - name: step01
         uses: actions/checkout@v2
