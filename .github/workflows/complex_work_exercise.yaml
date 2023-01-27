@@ -1,7 +1,7 @@
 name:  "Complex-work-exercise-2nd"
-run-name: ${{ github.actor }}
+run-name: ${{ github.actor }} executing exercise
 env:
-  ENV_AT_WORKFLOW_LVL: 'ENV from Worklow'
+  ENV_AT_WORKFLOW_LVL: 'env from Worklow'
 on:
   push:
     branches:
