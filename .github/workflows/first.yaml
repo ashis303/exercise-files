@@ -1,5 +1,5 @@
 name: GitHubAction first
-run-name: ${{ github.actor }} is tetsing out GitHub Actions # github.actor will be the executer "ashis303"
+run-name: ${{ github.actor }} is testing out GitHub Actions # github.actor will be the executer "ashis303"
 env:
   ENV_AT_WORKFLOW: 'at WORKFLOW level'
   ENV_OVERWRIDE: 'at workflow level overwride'
