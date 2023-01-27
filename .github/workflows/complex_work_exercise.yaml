@@ -17,7 +17,7 @@ jobs:
       - name: step02
         run: | 
           echo "*** Running Complex-work-exercise-2nd Ubuntu *****"
-          echo "Output 1.  ${{ ENV_AT_WORKFLOW_LVL }} "
+          echo "Output 1.  ${{ env.ENV_AT_WORKFLOW_LVL }} "
           echo "Output 2. $printenv"
           date
   job02:

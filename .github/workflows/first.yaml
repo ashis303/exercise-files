@@ -6,8 +6,8 @@ env:
 on:
   push:
     branches:
-      - "main"
-      - "master"
+      - "main01"
+      - "master01"
 jobs:
   job01:
     runs-on: ubuntu-latest
