@@ -5,8 +5,8 @@ env:
 on:
   push:
     branches:
-      - "main"
-      - "master"
+      - "main01"
+      - "master01"
 
 jobs:
   job01:
@@ -18,7 +18,7 @@ jobs:
         run: | 
           echo "*** Running Complex-work-exercise-2nd Ubuntu *****"
           echo "Output 1.  ${{ env.ENV_AT_WORKFLOW_LVL }} "
-          echo "Output 2." $printenv
+          echo "Output 2." env
           date
   job02:
     runs-on: windows-latest
