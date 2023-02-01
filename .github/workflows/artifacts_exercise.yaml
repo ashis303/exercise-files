@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} is deploying git action
 on:
   push:
     branches:
-      - "main/*"
-      - "master"
+      - "main"
+      - "master/*"
 
 env: 
   WorkflowLvlEnv: 'value of workflow lvl env variable'
