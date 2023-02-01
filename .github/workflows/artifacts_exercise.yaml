@@ -1,0 +1,63 @@
+name: Artifatcs_build
+run-name: ${{ github.actor }} is deploying git action
+on:
+  push:
+    branches:
+      - "main/*"
+      - "master"
+
+env: 
+  WorkflowLvlEnv: 'value of workflow lvl env variable'
+
+jobs:
+  jobOne:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step01
+        uses: actions/checkout@v2
+
+      - name: step02 List project files and java version
+        run: |
+              ls -ltr
+              java -version
+      
+      - name: step03 Tomcat build
+        uses: actions/checkout@v2
+        with:
+          repository: apache/tomcat
+          ref: master
+          path: ./tomcat
+      
+      - name: step04 java install
+        uses: actions/setup-java
+        with:
+          java-version: '9.0.4'     # The JDK version to make available on the path
+          java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64         # (x64 or x86) - defaults to x64
+
+      - name: List project files and java version
+        run: |
+              ls -ltr
+              java -version
+
+      - name: Copy tomcat-users.xml into Tomcat configuration directory
+        run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+
+      - name: buidl tomcat
+        run: |
+              cd ./tomcat
+              ant
+      
+
+
+
+
+
+        
+
+
+        
+        
+
+
+
