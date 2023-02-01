@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out tomcat-users.xml
+    - name: Check out
       uses: actions/checkout@v3
 
     - name: List project files and java version
