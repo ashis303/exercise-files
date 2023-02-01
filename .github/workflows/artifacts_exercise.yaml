@@ -21,15 +21,15 @@ jobs:
               ls -ltr
               java -version
       
-      - name: step03 Tomcat build
+      - name: step03 Check out Apache Tomcat
         uses: actions/checkout@v2
         with:
-          repository: apache/tomcat
-          ref: master
-          path: ./tomcat
+          repository: apache/tomcat # Repository name with owner
+          ref: master               # The branch, tag or SHA to checkout
+          path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
       
       - name: step04 java install
-        uses: actions/setup-java
+        uses: actions/setup-java@v1
         with:
           java-version: '9.0.4'     # The JDK version to make available on the path
           java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
