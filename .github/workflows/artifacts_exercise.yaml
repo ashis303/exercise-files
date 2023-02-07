@@ -40,9 +40,14 @@ jobs:
         run: |
               ls -ltr
               java -version
-
-      - name: Copy tomcat-users.xml into Tomcat configuration directory
-        run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "tomcat-users.xml"
+          target: "./tomcat/conf/tomcat-users.xml"
+      
+#      - name: Copy tomcat-users.xml into Tomcat configuration directory
+#        run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
 
       - name: buidl tomcat
         run: |
