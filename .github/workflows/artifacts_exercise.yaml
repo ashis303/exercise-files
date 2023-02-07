@@ -53,7 +53,20 @@ jobs:
         run: |
               cd ./tomcat
               ant
+
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SP_CSP_SECRET }}
       
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az account show
+            az storage -h
+        
 
 
 
