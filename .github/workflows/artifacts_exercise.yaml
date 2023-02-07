@@ -66,7 +66,13 @@ jobs:
           azPSVersion: '3.1.0'
           inlineScript: |
             Get-AzVM -ResourceGroupName "ashish-RG"
-        
+
+      - name: Azure CLI script to account show
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show        
 
 
 
