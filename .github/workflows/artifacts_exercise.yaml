@@ -54,18 +54,18 @@ jobs:
               cd ./tomcat
               ant
 
-      - name: Azure login
-        uses: azure/login@v1
+      - name: Login via Az module
+        uses: azure/login@v1.1
         with:
           creds: ${{ secrets.SP_CSP_SECRET102 }}
+          enable-AzPSSession: true 
       
-      - name: Azure CLI script
-        uses: azure/CLI@v1
+      - name: Run Azure PowerShell script
+        uses: azure/powershell@v1
         with:
-          azcliversion: 2.30.0
+          azPSVersion: '3.1.0'
           inlineScript: |
-            az account show
-            az storage -h
+            Get-AzVM -ResourceGroupName "ashish-RG"
         
 
 
