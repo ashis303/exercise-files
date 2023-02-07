@@ -43,7 +43,7 @@ jobs:
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
-          source: "tomcat-users.xml"
+          source: "./tomcat-users.xml"
           target: "./tomcat/conf/tomcat-users.xml"
       
 #      - name: Copy tomcat-users.xml into Tomcat configuration directory
