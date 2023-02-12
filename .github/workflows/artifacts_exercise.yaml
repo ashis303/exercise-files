@@ -61,6 +61,8 @@ jobs:
 #          enable-AzPSSession: true 
   jobtwo:
     runs-on: windows-latest
+    permissions:
+      id-token: write
     steps:
       - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
         uses: azure/login@v1
