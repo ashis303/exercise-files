@@ -78,13 +78,14 @@ jobs:
           azPSVersion: 'latest'
           inlineScript: |
             Get-AzResourceGroup
+            az account show 
 
-      - name: Azure CLI script to account show
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show        
+#      - name: Azure CLI script to account show
+#        uses: azure/CLI@v1
+#        with:
+#          azcliversion: latest
+#          inlineScript: |
+#            az account show        
 
 
 
