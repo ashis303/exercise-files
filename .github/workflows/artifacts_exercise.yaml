@@ -75,9 +75,9 @@ jobs:
       - name: Run Azure PowerShell script
         uses: azure/powershell@v1
         with:
-          azPSVersion: '3.1.0'
+          azPSVersion: 'latest'
           inlineScript: |
-            Get-AzVM -ResourceGroupName "ashish-RG"
+            Get-AzResourceGroup
 
       - name: Azure CLI script to account show
         uses: azure/CLI@v1
