@@ -54,12 +54,19 @@ jobs:
               cd ./tomcat
               ant
 
-      - name: Login via Az module
-        uses: azure/actions/login@v1
+#      - name: Login via Az module
+#        uses: azure/actions/login@v1
+#        with:
+#          creds: ${{ secrets.SP_CSP_SECRET102 }}
+#          enable-AzPSSession: true 
+      - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+        uses: azure/login@v1
         with:
-          creds: ${{ secrets.SP_CSP_SECRET102 }}
-          enable-AzPSSession: true 
-      
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+          enable-AzPSSession: true
+
       - name: Run Azure PowerShell script
         uses: azure/powershell@v1
         with:
